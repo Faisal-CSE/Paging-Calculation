@@ -1,0 +1,15 @@
+R = Number of rows on a given page P,
+                  > where P starts at 1
+T = Total rows
+L = Rows per page
+
+R = T - ((P-1) * L)
+
+*Then just add a check afterwards to set R to 0 if R < 0.
+
+Code:
+
+function get_num_rows_on_page($page, $total_rows, $per_page) {
+    $on_page = $total_rows - ( ($page-1) * $per_page );
+    return $on_page < 0 ? 0 : $on_page;
+}
